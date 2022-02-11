@@ -74,7 +74,9 @@ class _SignInState extends State<SignIn> {
                               border: OutlineInputBorder(),
                               hintText: 'Password',
                               suffixIcon: IconButton(
-                                icon: Icon(Icons.security),
+                                icon: Icon(_obscureText
+                                    ? Icons.remove_red_eye
+                                    : Icons.security),
                                 onPressed: () {
                                   setState(() {
                                     _obscureText = !_obscureText;

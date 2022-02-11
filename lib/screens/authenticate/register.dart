@@ -72,7 +72,9 @@ class _RegisterState extends State<Register> {
                               border: OutlineInputBorder(),
                               hintText: 'Password',
                               suffixIcon: IconButton(
-                                icon: Icon(Icons.security),
+                                icon: Icon(_obscureText
+                                    ? Icons.remove_red_eye
+                                    : Icons.security),
                                 onPressed: () {
                                   setState(() {
                                     _obscureText = !_obscureText;
