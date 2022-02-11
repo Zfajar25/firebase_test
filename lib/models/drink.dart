@@ -1,7 +1,7 @@
 class Drinks {
-  final String? name;
-  final String? sugar;
-  final int? amount;
+  final String name;
+  final String sugar;
+  final int amount;
 
-  Drinks({this.name, this.sugar, this.amount});
+  Drinks({required this.name, required this.sugar, required this.amount});
 }

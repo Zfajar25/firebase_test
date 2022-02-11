@@ -7,6 +7,19 @@ class DrinkTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: EdgeInsets.only(top: 5),
+      child: Card(
+        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        child: ListTile(
+          leading: CircleAvatar(
+            radius: 25,
+            backgroundColor: Colors.brown[drink!.amount],
+          ),
+          title: Text(drink!.name),
+          subtitle: Text('Takes ${drink!.sugar} sugar'),
+        ),
+      ),
+    );
   }
 }

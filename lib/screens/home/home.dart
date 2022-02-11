@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamProvider<List<Drinks>?>.value(
       value: DatabaseService().theDrink,
-      initialData: null,
+      initialData: List.empty(),
       child: Scaffold(
         appBar: AppBar(
           title: Text('The Crew'),
