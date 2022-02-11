@@ -16,6 +16,7 @@ class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   bool isLoading = false;
+  bool _obscureText = true;
   String email = '';
   String password = '';
   String error = '';
@@ -65,17 +66,27 @@ class _SignInState extends State<SignIn> {
                           validator: (value) => value!.length < 6
                               ? 'Enter a password more than 6 character'
                               : null,
-                          obscureText: true,
+                          obscureText: _obscureText,
                           onChanged: (value) => setState(() {
                                 password = value;
                               }),
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
-                              hintText: 'Password')),
+                              hintText: 'Password',
+                              suffixIcon: IconButton(
+                                icon: Icon(Icons.security),
+                                onPressed: () {
+                                  setState(() {
+                                    _obscureText = !_obscureText;
+                                  });
+                                },
+                              ))),
                       SizedBox(
                         height: 20,
                       ),
                       ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors.grey[700]),
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               setState(() {
