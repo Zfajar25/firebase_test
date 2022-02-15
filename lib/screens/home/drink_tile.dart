@@ -8,11 +8,13 @@ class DrinkTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 5),
+      padding: const EdgeInsets.only(top: 5),
       child: Card(
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        color: Colors.white,
         child: ListTile(
           leading: CircleAvatar(
+            backgroundImage: const AssetImage('assets/coffee_icon.png'),
             radius: 25,
             backgroundColor: Colors.brown[drink!.amount],
           ),

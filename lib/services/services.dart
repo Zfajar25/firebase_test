@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_test/models/drink.dart';
+import 'package:firebase_test/models/user.dart';
 
 class DatabaseService {
   final String? uid;
@@ -24,8 +25,22 @@ class DatabaseService {
     }).toList();
   }
 
+  // userData from Snapshot
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
+    return UserData(
+        uid: uid,
+        name: snapshot.data['name'],
+        sugars: snapshot.data['sugar'],
+        amount: snapshot.data['amount']);
+  }
+
   // get stream for firestore
   Stream<List<Drinks>> get theDrink {
     return drink.snapshots().map(_drinkListFromSnapshot);
+  }
+
+  //get user doc stream
+  Stream<UserData> get userData {
+    return drink.document(uid).snapshots().map(_userDataFromSnapshot);
   }
 }
